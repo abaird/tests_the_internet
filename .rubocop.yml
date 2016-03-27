@@ -1,0 +1,9 @@
+#require: rubocop-rspec
+
+Metrics/LineLength:
+  Max: 90
+
+Style/DotPosition:
+  EnforcedStyle: trailing
+
+
