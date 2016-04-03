@@ -6,4 +6,5 @@ Metrics/LineLength:
 Style/DotPosition:
   EnforcedStyle: trailing
 
-
+Documentation:
+  Enabled: false

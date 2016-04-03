@@ -7,6 +7,9 @@ source 'https://rubygems.org' do
   gem 'webdriver-user-agent'
   gem 'rubocop'
   gem 'pry-byebug'
+  gem 'capybara'
+  gem 'poltergeist', '~>1.9'
+  gem 'site_prism'
 end
 
 ruby '2.2.4'
