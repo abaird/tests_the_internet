@@ -1,8 +1,8 @@
 require_relative 'spec_helper'
 
 feature 'Test out Capybara' do
-  let(:the_internet_page) { TheInternetPage.new }
-  let(:tables_page) { TablesPage.new }
+  let(:the_internet_page) { C::TheInternetPage.new }
+  let(:tables_page) { C::TablesPage.new }
 
   background do
     the_internet_page.load

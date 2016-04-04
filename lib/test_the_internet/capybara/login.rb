@@ -1,20 +1,39 @@
-module TheInternetCommon
-  def base_url
-    'https://murmuring-dusk-70651.herokuapp.com'
+module C
+  class FlashMessages < SitePrism::Section
+    element :message, '#flash'
   end
-end
-class TheInternetPage < SitePrism::Page
-  extend TheInternetCommon
-  set_url base_url
-  set_url_matcher %r{#{base_url}/?}
 
-  element :heading, 'h1.heading'
-  element :tables_link, "a[href='/tables']"
-end
+  class LoginPage < SitePrism::Page
+    extend C::TheInternetCommon
+    set_url base_url + '/login'
+    set_url_matcher %r{#{base_url}/login/?}
+    load_validation { has_page_title? }
 
-class TablesPage < SitePrism::Page
-  extend TheInternetCommon
-  set_url_matcher %r{#{base_url}/tables/?}
+    element :page_title, '.example > h2'
+    element :username_field, '#username'
+    element :password_field, '#password'
+    element :login_button, '#login > button'
+    section :flash_message, FlashMessages, '#flash-messages'
 
-  element :main_heading, '.example h3'
+    def invalid_login?
+      flash_message.message.text[/Your (username|password) is invalid!/]
+    end
+
+    def login(username, password)
+      username_field.set username
+      password_field.set password
+      login_button.click
+      raise RuntimeError if loaded? && invalid_login?
+    end
+  end
+
+  class SecureArea < SitePrism::Page
+    extend C::TheInternetCommon
+    set_url_matcher %r{#{base_url}/secure/?}
+    load_validation { has_logout_button? }
+
+    element :flash_message, '#flash-messages'
+
+    element :logout_button, '.button'
+  end
 end

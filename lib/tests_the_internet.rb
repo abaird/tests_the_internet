@@ -1,1 +1,0 @@
-require_relative 'test_the_internet/watir_and_selenium/login'
