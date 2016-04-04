@@ -3,7 +3,8 @@ require 'capybara'
 require 'capybara/rspec'
 require 'site_prism'
 require 'capybara/poltergeist'
-require 'tests_the_internet_with_capybara'
+require 'test_the_internet'
+require 'test_the_internet/capybara'
 
 Capybara.register_driver :selenium_chrome do |app|
   Capybara::Selenium::Driver.new(app, browser: :chrome)

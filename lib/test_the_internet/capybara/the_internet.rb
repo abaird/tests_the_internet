@@ -6,5 +6,8 @@ module C
 
     element :heading, 'h1.heading'
     element :tables_link, "a[href='/tables']"
+
+    def page_by_text(text)
+    end
   end
 end

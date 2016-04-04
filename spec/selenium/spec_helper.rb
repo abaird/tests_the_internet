@@ -1,5 +1,6 @@
 require 'selenium-webdriver'
-require 'tests_the_internet_with_selenium'
+require 'test_the_internet'
+require 'test_the_internet/selenium'
 
 RSpec.configure do |_config|
   def base_url

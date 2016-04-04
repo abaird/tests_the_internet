@@ -1,5 +1,6 @@
 require 'watir-webdriver'
-require 'tests_the_internet_with_watir'
+require 'test_the_internet'
+require 'test_the_internet/watir'
 
 RSpec.configure do |_config|
   def base_url
