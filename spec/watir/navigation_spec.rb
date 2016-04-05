@@ -14,7 +14,6 @@ end
 describe 'visit all pages' do
   before(:all) do
     @browser = Watir::Browser.new
-    @browser.goto base_url
   end
 
   after(:all) do
@@ -25,6 +24,7 @@ describe 'visit all pages' do
 
   PageNavigationHelper.url_list_safe.sample(5).each do |page|
     it "should visit page: #{page}" do
+      the_internet.visit
       the_internet.visit_page(url: page)
       expect(@browser.url).to match page
       the_internet.visit
@@ -32,6 +32,7 @@ describe 'visit all pages' do
   end
   PageNavigationHelper.title_list_safe.sample(5).each do |page|
     it "should visit page: #{page}" do
+      the_internet.visit
       the_internet.visit_page(title: page)
       expect(@browser.url).to match PageNavigationHelper.url_by_title(page)
       the_internet.visit

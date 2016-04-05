@@ -1,17 +1,9 @@
 module W
-  class PageBase
-    def initialize(browser)
-      @browser = browser
-    end
-
-    attr_reader :browser
-
-    def title
-      @browser.title
-    end
-  end
-
   class Login < PageBase
+    def visit
+      @browser.goto base_url + '/login'
+    end
+
     def username_field
       @browser.text_field(id: 'username')
     end
