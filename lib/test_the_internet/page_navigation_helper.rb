@@ -34,7 +34,7 @@ class PageNavigationHelper
        basic_auth)
   end
 
-  def self.page_collection
+  def self.page_collection # rubocop:disable Metrics/MethodLength
     [
         {title: 'A/B Testing', url: 'abtest'},
         {title: 'Basic Auth', url: 'basic_auth'},
